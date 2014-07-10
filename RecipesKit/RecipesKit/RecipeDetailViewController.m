@@ -10,8 +10,9 @@
 #import "AppDelegate.h"
 #import "ServingsViewController.h"
 #import "Image.h"
+#import "PhotosViewController.h"
 
-@interface RecipeDetailViewController () <UITextFieldDelegate>
+@interface RecipeDetailViewController () <UITextFieldDelegate, UIPageViewControllerDataSource>
 @property (strong, nonatomic) UIBarButtonItem *actionButton;
 @property (strong, nonatomic) UIBarButtonItem *cameraButton;
 @property (strong, nonatomic) UIBarButtonItem *doneButton;
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *servingsButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+
+@property (weak, nonatomic) UIPageViewController *pageViewController;
 @end
 
 @implementation RecipeDetailViewController
@@ -101,7 +104,15 @@
     self.navigationItem.rightBarButtonItems = @[self.cameraButton, self.actionButton];
 }
 
+- (void)keyboardWillHide:(NSNotification *)userInfo
+{
+    self.navigationItem.rightBarButtonItems = @[self.cameraButton, self.actionButton];
+}
 
+- (void)keyboardWillShow:(NSNotification *)userInfo
+{
+    self.navigationItem.rightBarButtonItems = @[self.doneButton, self.actionButton];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -112,8 +123,8 @@
     [self.servingsButton setTitle:[self.recipe servingsString] forState:UIControlStateHighlighted];
     self.titleTextField.text = self.recipe.title;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
