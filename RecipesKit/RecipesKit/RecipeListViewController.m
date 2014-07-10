@@ -142,6 +142,16 @@
 
 - (void)didReceiveMemoryWarning
 {
+    if ([self.view window] == nil) {
+        self.view = nil;
+    }
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - orientation
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
