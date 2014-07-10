@@ -107,7 +107,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="qXd-4U-9Ah" kind="embed" id="ggJ-aU-Rid"/>
+                                            <segue destination="qXd-4U-9Ah" kind="embed" identifier="pageViewController" id="ggJ-aU-Rid"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2p-xi-Pgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="293"/>
+            <point key="canvasLocation" x="447" y="667"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="Dhp-Yr-aOL">
@@ -179,12 +179,12 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qXd-4U-9Ah" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2r-gj-CYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="553"/>
+            <point key="canvasLocation" x="924" y="916"/>
         </scene>
         <!--Photos View Controller-->
         <scene sceneID="0x2-IS-Vvb">
             <objects>
-                <viewController id="DY1-Pc-aQS" customClass="PhotosViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotosViewController" id="DY1-Pc-aQS" customClass="PhotosViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EWB-WP-n5B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -205,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdL-u3-Adj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873" y="372"/>
+            <point key="canvasLocation" x="1209" y="622"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

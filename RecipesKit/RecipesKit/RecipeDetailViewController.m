@@ -141,4 +141,19 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"pageViewController"]) {
+        if (self.recipe.images.count > 0) {
+            self.pageViewController = segue.destinationViewController;
+            self.pageViewController.dataSource = self;
+            PhotosViewController *photosViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotosViewController"];
+            photosViewController.index = 0;
+            Image *image = [[self.recipe.images allObjects] objectAtIndex:0];
+            photosViewController.image = image.image;
+            [self.pageViewController setViewControllers:@[photosViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        }
+    }
+}
+
 @end
