@@ -22,6 +22,9 @@
 		5537ABA115D0C43C0052BD09 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5537AB9F15D0C43C0052BD09 /* Recipe.m */; };
 		55F69EE115F6C114001EF9C0 /* RecipesKit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 55F69EE015F6C114001EF9C0 /* RecipesKit.sqlite */; };
 		55FFD5E21607F5E600D46FE3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55FFD5E11607F5E600D46FE3 /* Default-568h@2x.png */; };
+		C2CC9935196E78420096836E /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2CC9934196E78420096836E /* RecipeCell.xib */; };
+		C2CC9938196E7C4C0096836E /* RecipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC9937196E7C4C0096836E /* RecipeCell.m */; };
+		C2CC993B196E7EFE0096836E /* RecipeCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC993A196E7EFE0096836E /* RecipeCodeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,11 @@
 		5537AB9F15D0C43C0052BD09 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		55F69EE015F6C114001EF9C0 /* RecipesKit.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipesKit.sqlite; sourceTree = "<group>"; };
 		55FFD5E11607F5E600D46FE3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C2CC9934196E78420096836E /* RecipeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		C2CC9936196E7C4C0096836E /* RecipeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeCell.h; sourceTree = "<group>"; };
+		C2CC9937196E7C4C0096836E /* RecipeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeCell.m; sourceTree = "<group>"; };
+		C2CC9939196E7EFE0096836E /* RecipeCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeCodeCell.h; sourceTree = "<group>"; };
+		C2CC993A196E7EFE0096836E /* RecipeCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeCodeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +144,11 @@
 				5537AB8615D0A6F50052BD09 /* RecipeDetailViewController.m */,
 				5537AB8215D0A6F50052BD09 /* RecipeListViewController.h */,
 				5537AB8315D0A6F50052BD09 /* RecipeListViewController.m */,
+				C2CC9936196E7C4C0096836E /* RecipeCell.h */,
+				C2CC9937196E7C4C0096836E /* RecipeCell.m */,
+				C2CC9934196E78420096836E /* RecipeCell.xib */,
+				C2CC9939196E7EFE0096836E /* RecipeCodeCell.h */,
+				C2CC993A196E7EFE0096836E /* RecipeCodeCell.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -227,6 +240,7 @@
 			files = (
 				5537AB7515D0A6F50052BD09 /* InfoPlist.strings in Resources */,
 				5537AB7E15D0A6F50052BD09 /* MainStoryboard.storyboard in Resources */,
+				C2CC9935196E78420096836E /* RecipeCell.xib in Resources */,
 				55F69EE115F6C114001EF9C0 /* RecipesKit.sqlite in Resources */,
 				55FFD5E21607F5E600D46FE3 /* Default-568h@2x.png in Resources */,
 			);
@@ -242,10 +256,12 @@
 				5537AB7715D0A6F50052BD09 /* main.m in Sources */,
 				5537AB7B15D0A6F50052BD09 /* AppDelegate.m in Sources */,
 				5537AB8115D0A6F50052BD09 /* RecipesKit.xcdatamodeld in Sources */,
+				C2CC993B196E7EFE0096836E /* RecipeCodeCell.m in Sources */,
 				5537AB8415D0A6F50052BD09 /* RecipeListViewController.m in Sources */,
 				5537AB8715D0A6F50052BD09 /* RecipeDetailViewController.m in Sources */,
 				5537ABA015D0C43C0052BD09 /* Image.m in Sources */,
 				5537ABA115D0C43C0052BD09 /* Recipe.m in Sources */,
+				C2CC9938196E7C4C0096836E /* RecipeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

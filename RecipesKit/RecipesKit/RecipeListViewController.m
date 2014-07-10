@@ -9,6 +9,8 @@
 #import "RecipeDetailViewController.h"
 #import "RecipeListViewController.h"
 #import "Recipe.h"
+//#import "RecipeCell.h"
+#import "RecipeCodeCell.h"
 
 @interface RecipeListViewController ()
 
@@ -77,9 +79,21 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+//    Recipe *recipe = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    
+//    cell.textLabel.text = recipe.title;
     Recipe *recipe = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    RecipeCell *recipeCell = (RecipeCell *)cell;
+//    
+//    recipeCell.titleLabel.text = recipe.title;
+//    recipeCell.subtitleLabel.text = [recipe servingsString];
+
+    RecipeCodeCell *recipeCell = (RecipeCodeCell *)cell;
     
-    cell.textLabel.text = recipe.title;
+    recipeCell.servingsLabel.text = [recipe servingsString];
+    recipeCell.nameLabel.text = recipe.title;
+    
+    
 }
 
 #pragma mark - Properties
@@ -132,11 +146,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"])
-    {
+    if ([[segue identifier] isEqualToString:RecipeCodeCellSegue]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Recipe *recipe = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setRecipe:recipe];
+        
+        RecipeDetailViewController *recipeDetailViewController = segue.destinationViewController;
+        recipeDetailViewController.recipe = recipe;
+        recipeDetailViewController.managedObjectContext = self.fetchedResultsController.managedObjectContext;
     }
 }
 
@@ -148,6 +164,10 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    UINib *recipeCellNib = [UINib nibWithNibName:@"RecipeCell" bundle:[NSBundle mainBundle]];
+//    [self.tableView registerNib:recipeCellNib forCellReuseIdentifier:RecipeCellReuseIdentifier];
+    [self.tableView registerClass:[RecipeCodeCell class] forCellReuseIdentifier:RecipeCodeCellReuseIdentifier];
 }
 
 - (void)insertNewObject:(id)sender
@@ -193,9 +213,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RecipeCellReuseIdentifier forIndexPath:indexPath];;
+//    [self configureCell:cell atIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RecipeCodeCellReuseIdentifier forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
-    
     return cell;
 }
 
@@ -225,5 +247,12 @@
     
     return [sectionInfo numberOfObjects];
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:RecipeCodeCellSegue sender:self];
+}
+
+
 
 @end
